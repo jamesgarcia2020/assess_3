@@ -13,7 +13,7 @@
 
     <hr>
     {% if widgets|length == 0 %}
-        <h3>No Widget Exist</h3>
+        <h3>No Widget Exists</h3>
     {% else %}
         <table class="pure-table pure-table-striped">
             <thead>
@@ -27,14 +27,14 @@
             <tr>
                 <td>{{ widget.description }}</td> 
                 <td>{{ widget.quantity }}</td>
-                <td><a href="{% url 'widgets_delete' widget.id %}">Delete</a></td>
-                <td><a href="{% url 'widgets_update' widget.id %}">Update</a></td>
+                <td><a href="{% url 'widgets_delete' widget.id %}">X</a></td>
+                <td><a class="pure-button" href="{% url 'widgets_update' widget.id %}">Update</a></td>
 
             </tr>  
             {% endfor %}
         </table>
     {% endif %}
     <hr>
-    <a href="{% url 'add_widget' %}">Add A Widget</a>
+    <a class="pure-button" href="{% url 'add_widget' %}">Add A Widget</a>
 </body>
 </html>
