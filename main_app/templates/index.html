@@ -7,6 +7,19 @@
     <title>Wacky Widgets</title>
 </head>
 <body>
-    
+    <h1>Wacky Widgets</h1>
+
+    <hr>
+    {% if widgets|length == 0 %}
+        <h3>No Widget Exist</h3>
+    {% else %}
+        <ul>
+            {% for widget in widgets %}
+                <li>{{ widget }}</li> <a href="{% url 'widgets_delete' widget.id %}">Delete</a><a href="{% url 'widgets_update' widget.id %}">Update</a>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <hr>
+    <a href="{% url 'add_todo' %}">Add A Todo</a>
 </body>
 </html>
