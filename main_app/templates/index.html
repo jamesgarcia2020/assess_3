@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    
     <title>Wacky Widgets</title>
 </head>
 <body>
@@ -13,13 +14,23 @@
     {% if widgets|length == 0 %}
         <h3>No Widget Exist</h3>
     {% else %}
-        <ul>
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
             {% for widget in widgets %}
-                <li>{{ widget.description }}</li> 
-                <li>{{ widget.quantity }}</li><a href="{% url 'widgets_delete' widget.id %}">Delete</a><a href="{% url 'widgets_update' widget.id %}">Update</a>
-                
+            <tr>
+                <td>{{ widget.description }}</td> 
+                <td>{{ widget.quantity }}</td>
+                <td><a href="{% url 'widgets_delete' widget.id %}">Delete</a></td>
+                <td><a href="{% url 'widgets_update' widget.id %}">Update</a></td>
+
+            </tr>  
             {% endfor %}
-        </ul>
+        </table>
     {% endif %}
     <hr>
     <a href="{% url 'add_widget' %}">Add A Widget</a>
