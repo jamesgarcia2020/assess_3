@@ -15,11 +15,13 @@
     {% else %}
         <ul>
             {% for widget in widgets %}
-                <li>{{ widget }}</li> <a href="{% url 'widgets_delete' widget.id %}">Delete</a><a href="{% url 'widgets_update' widget.id %}">Update</a>
+                <li>{{ widget.description }}</li> 
+                <li>{{ widget.quantity }}</li><a href="{% url 'widgets_delete' widget.id %}">Delete</a><a href="{% url 'widgets_update' widget.id %}">Update</a>
+                
             {% endfor %}
         </ul>
     {% endif %}
     <hr>
-    
+    <a href="{% url 'add_widget' %}">Add A Widget</a>
 </body>
 </html>
